@@ -22,12 +22,12 @@ public class MainModel implements MainContract.Model {
   }
 
   //Añadir contador
-  private void addContador(ContadorItem contadorItem){
+  public void addContador(ContadorItem contadorItem){
     contadorItemList.add(contadorItem);
   }
 
   //Crear contador
-  private ContadorItem createContador(int position){
+  public ContadorItem createContador(int position){
     return new ContadorItem(position, 0);
   }
 }

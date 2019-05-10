@@ -52,7 +52,7 @@ public class ContadorListAdapter extends ArrayAdapter<ContadorItem> {
     itemView.setOnClickListener(clickListener);
 
     final TextView contentView = itemView.findViewById(R.id.contador_item);
-    contentView.setText(contadorItemList.get(position).contador);
+//    contentView.setText(contadorItemList.get(position).contador);
 
     return itemView;
   }

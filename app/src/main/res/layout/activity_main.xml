@@ -27,5 +27,6 @@
         android:clickable="true"
         android:textAlignment="center"
         android:tint="@color/colorPrimary"
-        android:text="Add" />
+        android:text="Add"
+        android:onClick="onAddButtonPressed"/>
 </android.support.design.widget.CoordinatorLayout>

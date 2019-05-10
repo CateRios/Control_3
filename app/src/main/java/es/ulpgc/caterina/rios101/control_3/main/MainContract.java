@@ -21,10 +21,14 @@ interface MainContract {
     void injectRouter(Router router);
 
     void fetchData();
+
+    void onAddButtonPressed();
   }
 
   interface Model {
     List<ContadorItem> fetchData();
+
+    void addContador(ContadorItem item);
   }
 
   interface Router {

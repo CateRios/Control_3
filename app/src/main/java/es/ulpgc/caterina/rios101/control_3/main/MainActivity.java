@@ -63,4 +63,9 @@ public class MainActivity
       }
     }));
   }
+
+  //Añadir un contador
+  public void onAddButtonPressed(View view) {
+    presenter.onAddButtonPressed();
+  }
 }
