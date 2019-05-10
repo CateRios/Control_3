@@ -61,7 +61,7 @@ public class MainPresenter implements MainContract.Presenter {
   @Override
   public void onAddButtonPressed(){
     //call the model
-    model.addContador(new ContadorItem(1, 0));
+    model.addContador(new ContadorItem(1, 5));
     //update the view
     List<ContadorItem> data = model.fetchData();
     viewModel.contadorItemList = data;
