@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.caterina.rios101.control_3.app.AppMediator;
+import es.ulpgc.caterina.rios101.control_3.detail.DetailActivity;
 
 public class MainRouter implements MainContract.Router {
 
@@ -19,7 +20,7 @@ public class MainRouter implements MainContract.Router {
   @Override
   public void navigateToNextScreen() {
     Context context = mediator.getApplicationContext();
-    Intent intent = new Intent(context, MainActivity.class);
+    Intent intent = new Intent(context, DetailActivity.class);
     context.startActivity(intent);
   }
 

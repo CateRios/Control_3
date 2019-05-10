@@ -70,5 +70,10 @@ public class MainPresenter implements MainContract.Presenter {
     //model.updateClicks();
     }
 
+    //Ir al detalle
+    @Override
+  public void goToDetail(){
+    router.navigateToNextScreen();
+    }
 
 }

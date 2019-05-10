@@ -23,6 +23,8 @@ interface MainContract {
     void fetchData();
 
     void onAddButtonPressed();
+
+    void goToDetail();
   }
 
   interface Model {

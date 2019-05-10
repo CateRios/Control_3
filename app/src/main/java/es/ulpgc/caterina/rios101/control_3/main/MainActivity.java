@@ -60,6 +60,7 @@ public class MainActivity
       @Override
       public void onClick(View v) {
         //Ir al detalle
+        presenter.goToDetail();
       }
     }));
   }
