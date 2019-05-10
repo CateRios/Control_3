@@ -49,4 +49,10 @@ public class DetailRouter implements DetailContract.Router {
   public void passDataToMainScreen(DetailToMainActivityState state){
     mediator.setDetailToMainActivityState(state);
   }
+
+  //Guardar el estado del contador al girar la pantalla
+  @Override
+  public void passContadorToNextScreen(MainToDetailState mainToDetailState){
+    mediator.setMainToDetailState(mainToDetailState);
+  }
 }

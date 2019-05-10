@@ -33,6 +33,12 @@ public class DetailActivity
   }
 
   @Override
+  public void onPause(){
+    super.onPause();
+    presenter.saveState();
+  }
+
+  @Override
   public void injectPresenter(DetailContract.Presenter presenter) {
     this.presenter = presenter;
   }

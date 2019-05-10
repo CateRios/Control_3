@@ -27,6 +27,8 @@ interface DetailContract {
     void updateClicks();
 
     void goToMainScreen();
+
+    void saveState();
   }
 
   interface Model {
@@ -39,6 +41,10 @@ interface DetailContract {
     int getContador();
 
     int getContadorDeClicks();
+
+    void setContador(int contador);
+
+    void setContadorDeClicks(int contadorDeClicks);
   }
 
   interface Router {
@@ -51,5 +57,8 @@ interface DetailContract {
     MainToDetailState getDataFromMainScreen();
 
     void passDataToMainScreen(DetailToMainActivityState state);
+
+    void passContadorToNextScreen(MainToDetailState mainToDetailState);
   }
 }
+

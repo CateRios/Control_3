@@ -7,6 +7,7 @@ import java.lang.ref.WeakReference;
 import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
 import es.ulpgc.caterina.rios101.control_3.app.DetailToMainActivityState;
 import es.ulpgc.caterina.rios101.control_3.app.MainToDetailState;
+import es.ulpgc.caterina.rios101.control_3.main.MainState;
 
 public class DetailPresenter implements DetailContract.Presenter {
 
@@ -47,6 +48,15 @@ public class DetailPresenter implements DetailContract.Presenter {
       viewModel.contador = data.contador;
     }
 
+    //recuperar estado
+    DetailState detailState = router.getDataFromPreviousScreen();
+    if(detailState != null){
+      model.setContador(detailState.contador);
+      model.setContadorDeClicks(detailState.contadorDeClicks);
+      viewModel.contador = detailState.contador;
+      viewModel.contadorDeClicks = detailState.contadorDeClicks;
+    }
+
     // update the view
     view.get().displayData(viewModel);
 
@@ -80,6 +90,17 @@ public class DetailPresenter implements DetailContract.Presenter {
     state.contadorClicks = model.getContadorDeClicks();
     router.passDataToMainScreen(state);
     router.navigateToNextScreen();
+  }
+
+  @Override
+  public void saveState(){
+   DetailState detailState = new DetailState();
+   MainToDetailState mainToDetailState = new MainToDetailState();
+   mainToDetailState.item = new ContadorItem(1, model.getContador());
+   detailState.contador = model.getContador();
+   detailState.contadorDeClicks = model.getContadorDeClicks();
+   router.passDataToNextScreen(detailState);
+   router.passContadorToNextScreen(mainToDetailState);
   }
 
 

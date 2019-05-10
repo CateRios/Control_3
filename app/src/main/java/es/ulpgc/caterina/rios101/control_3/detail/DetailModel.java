@@ -44,4 +44,14 @@ public class DetailModel implements DetailContract.Model {
     return contadorDeClicks;
   }
 
+  @Override
+  public void setContador(int contador) {
+    this.contador = contador;
+  }
+
+  @Override
+  public void setContadorDeClicks(int contadorDeClicks) {
+    this.contadorDeClicks = contadorDeClicks;
+  }
+
 }
