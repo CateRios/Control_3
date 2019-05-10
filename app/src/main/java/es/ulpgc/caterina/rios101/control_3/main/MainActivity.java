@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import es.ulpgc.caterina.rios101.control_3.R;
+import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
 
 public class MainActivity
         extends AppCompatActivity implements MainContract.View {
@@ -60,7 +61,8 @@ public class MainActivity
       @Override
       public void onClick(View v) {
         //Ir al detalle
-        presenter.goToDetail();
+        ContadorItem item = (ContadorItem) v.getTag();
+        presenter.goToDetail(item);
       }
     }));
   }
@@ -68,5 +70,6 @@ public class MainActivity
   //Añadir un contador
   public void onAddButtonPressed(View view) {
     presenter.onAddButtonPressed();
+    presenter.updateClicks();
   }
 }

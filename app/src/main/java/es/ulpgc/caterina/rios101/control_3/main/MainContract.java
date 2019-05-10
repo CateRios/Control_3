@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
+import es.ulpgc.caterina.rios101.control_3.app.MainToDetailState;
 
 interface MainContract {
 
@@ -24,13 +25,19 @@ interface MainContract {
 
     void onAddButtonPressed();
 
-    void goToDetail();
+    void goToDetail(ContadorItem item);
+
+    void updateClicks();
   }
 
   interface Model {
     List<ContadorItem> fetchData();
 
     void addContador(ContadorItem item);
+
+    void updateClicks();
+
+    int getContadorDeClicks();
   }
 
   interface Router {
@@ -39,5 +46,7 @@ interface MainContract {
     void passDataToNextScreen(MainState state);
 
     MainState getDataFromPreviousScreen();
+
+    void passDataToDetailScreen(MainToDetailState mainToDetailState);
   }
 }

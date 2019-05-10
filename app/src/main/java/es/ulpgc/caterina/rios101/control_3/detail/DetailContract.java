@@ -2,6 +2,8 @@ package es.ulpgc.caterina.rios101.control_3.detail;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.caterina.rios101.control_3.app.MainToDetailState;
+
 interface DetailContract {
 
   interface View {
@@ -18,10 +20,22 @@ interface DetailContract {
     void injectRouter(Router router);
 
     void fetchData();
+
+    void onCountButtonPressed();
+
+    void updateClicks();
   }
 
   interface Model {
     String fetchData();
+
+    void updateCount();
+
+    void updateClicks();
+
+    int getContador();
+
+    int getContadorDeClicks();
   }
 
   interface Router {
@@ -30,5 +44,7 @@ interface DetailContract {
     void passDataToNextScreen(DetailState state);
 
     DetailState getDataFromPreviousScreen();
+
+    MainToDetailState getDataFromMainScreen();
   }
 }

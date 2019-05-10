@@ -1,11 +1,10 @@
 package es.ulpgc.caterina.rios101.control_3.main;
 
-import android.util.Log;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 
 import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
+import es.ulpgc.caterina.rios101.control_3.app.MainToDetailState;
 
 public class MainPresenter implements MainContract.Presenter {
 
@@ -57,7 +56,7 @@ public class MainPresenter implements MainContract.Presenter {
 
   }
 
-  //Aañadir un contador
+  //Añadir un contador
   @Override
   public void onAddButtonPressed(){
     //call the model
@@ -66,13 +65,21 @@ public class MainPresenter implements MainContract.Presenter {
     List<ContadorItem> data = model.fetchData();
     viewModel.contadorItemList = data;
     view.get().displayData(viewModel);
-    //update clicks
-    //model.updateClicks();
+    }
+
+    //Actualizar número de clicks
+  @Override
+    public void updateClicks(){
+      model.updateClicks();
     }
 
     //Ir al detalle
     @Override
-  public void goToDetail(){
+  public void goToDetail(ContadorItem item){
+      MainToDetailState mainToDetailState = new MainToDetailState();
+      mainToDetailState.item = item;
+      mainToDetailState.contadorClicks = model.getContadorDeClicks();
+    router.passDataToDetailScreen(mainToDetailState);
     router.navigateToNextScreen();
     }
 

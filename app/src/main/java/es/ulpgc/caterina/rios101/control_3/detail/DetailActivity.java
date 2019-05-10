@@ -3,6 +3,7 @@ package es.ulpgc.caterina.rios101.control_3.detail;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import es.ulpgc.caterina.rios101.control_3.R;
@@ -41,6 +42,14 @@ public class DetailActivity
     //Log.e(TAG, "displayData()");
 
     // deal with the data
-    //((TextView) findViewById(R.id.data)).setText(viewModel.data);
+    ((TextView) findViewById(R.id.contador)).setText("" + viewModel.contador);
+    ((TextView) findViewById(R.id.clicks)).setText("" + viewModel.contadorDeClicks);
+
+  }
+
+  //Contar
+  public void onCountButtonPressed(View view) {
+    presenter.onCountButtonPressed();
+    presenter.updateClicks();
   }
 }

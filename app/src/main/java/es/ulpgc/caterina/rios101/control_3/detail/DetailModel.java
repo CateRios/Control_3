@@ -11,6 +11,9 @@ public class DetailModel implements DetailContract.Model {
 
   public static String TAG = DetailModel.class.getSimpleName();
 
+  private  int contador;
+  private int contadorDeClicks;
+
   public DetailModel() {
 
   }
@@ -20,4 +23,25 @@ public class DetailModel implements DetailContract.Model {
     // Log.e(TAG, "fetchData()");
     return "Hello";
   }
+
+  //Contar
+  @Override
+  public void updateCount(){
+    contador = contador + 1;
+  }
+
+  //Actuzalizar los clicks
+  @Override
+  public void updateClicks(){
+    contadorDeClicks = contadorDeClicks + 1;
+  }
+
+  public int getContador() {
+    return contador;
+  }
+
+  public int getContadorDeClicks() {
+    return contadorDeClicks;
+  }
+
 }

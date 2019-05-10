@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
+import es.ulpgc.caterina.rios101.control_3.app.MainToDetailState;
+
 public class DetailPresenter implements DetailContract.Presenter {
 
   public static String TAG = DetailPresenter.class.getSimpleName();
@@ -37,22 +40,36 @@ public class DetailPresenter implements DetailContract.Presenter {
     // Log.e(TAG, "fetchData()");
 
     // set passed state
-    DetailState state = router.getDataFromPreviousScreen();
+    MainToDetailState state = router.getDataFromMainScreen();
     if (state != null) {
-      viewModel.data = state.data;
-    }
-
-    if (viewModel.data == null) {
-      // call the model
-      String data = model.fetchData();
-
-      // set initial state
-      viewModel.data = data;
+      ContadorItem data = state.item;
+      viewModel.contador = data.contador;
     }
 
     // update the view
     view.get().displayData(viewModel);
 
+  }
+
+  //Contar
+  @Override
+  public void onCountButtonPressed(){
+    //call the model
+    model.updateCount();
+    int data = model.getContador();
+    viewModel.contador = data;
+    // update the view
+    view.get().displayData(viewModel);
+  }
+
+  @Override
+  public void updateClicks(){
+    //call the model
+    model.updateClicks();
+    int data = model.getContadorDeClicks();
+    viewModel.contadorDeClicks = data;
+    // update the view
+    view.get().displayData(viewModel);
   }
 
 

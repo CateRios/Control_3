@@ -11,6 +11,8 @@ public class AppMediator extends Application {
 
   DetailState detailState = new DetailState();
 
+  MainToDetailState mainToDetailState = new MainToDetailState();
+
   public MainState getMainState() {
     return mainState;
   }
@@ -25,6 +27,14 @@ public class AppMediator extends Application {
 
   public void setDetailState(DetailState detailState) {
     this.detailState = detailState;
+  }
+
+  public MainToDetailState getMainToDetailState() {
+    return mainToDetailState;
+  }
+
+  public void setMainToDetailState(MainToDetailState mainToDetailState) {
+    this.mainToDetailState = mainToDetailState;
   }
 
 

@@ -30,7 +30,8 @@
         android:backgroundTint="@color/colorPrimaryDark"
         android:clickable="true"
         android:text="Count"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:onClick="onCountButtonPressed"/>
 
 
 </LinearLayout>
