@@ -52,4 +52,11 @@ public class DetailActivity
     presenter.onCountButtonPressed();
     presenter.updateClicks();
   }
+
+  //Volver a Main
+  @Override
+  public void onBackPressed(){
+    super.onBackPressed();
+    presenter.goToMainScreen();
+  }
 }

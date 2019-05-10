@@ -1,6 +1,7 @@
 package es.ulpgc.caterina.rios101.control_3.main;
 
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,11 @@ public class MainModel implements MainContract.Model {
   @Override
   public void updateClicks(){
     contadorDeClicks = contadorDeClicks +1;
+  }
+
+  @Override
+  public void setContadorDeClicks(int contadorDeClicks){
+    this.contadorDeClicks = contadorDeClicks;
   }
 
   @Override

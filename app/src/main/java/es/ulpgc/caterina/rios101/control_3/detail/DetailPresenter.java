@@ -5,6 +5,7 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
+import es.ulpgc.caterina.rios101.control_3.app.DetailToMainActivityState;
 import es.ulpgc.caterina.rios101.control_3.app.MainToDetailState;
 
 public class DetailPresenter implements DetailContract.Presenter {
@@ -70,6 +71,15 @@ public class DetailPresenter implements DetailContract.Presenter {
     viewModel.contadorDeClicks = data;
     // update the view
     view.get().displayData(viewModel);
+  }
+
+  @Override
+  public void goToMainScreen(){
+    DetailToMainActivityState state = new DetailToMainActivityState();
+    state.item = new ContadorItem(1, model.getContador());
+    state.contadorClicks = model.getContadorDeClicks();
+    router.passDataToMainScreen(state);
+    router.navigateToNextScreen();
   }
 
 

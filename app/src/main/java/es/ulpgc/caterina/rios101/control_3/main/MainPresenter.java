@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
+import es.ulpgc.caterina.rios101.control_3.app.DetailToMainActivityState;
 import es.ulpgc.caterina.rios101.control_3.app.MainToDetailState;
 
 public class MainPresenter implements MainContract.Presenter {
@@ -40,8 +41,16 @@ public class MainPresenter implements MainContract.Presenter {
 
     // set passed state
     MainState state = router.getDataFromPreviousScreen();
+
     if (state != null) {
      //recuperar lista?
+    }
+
+    //Recuperar estado de Detail
+    DetailToMainActivityState detailToMainActivityState = router.getDataFromDetailScreen();
+    if(detailToMainActivityState != null){
+      ContadorItem item = detailToMainActivityState.item;
+      model.setContadorDeClicks(detailToMainActivityState.contadorClicks);
     }
 
     if (viewModel.contadorItemList == null) {

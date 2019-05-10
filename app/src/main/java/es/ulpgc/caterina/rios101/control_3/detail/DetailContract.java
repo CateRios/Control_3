@@ -2,6 +2,7 @@ package es.ulpgc.caterina.rios101.control_3.detail;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.caterina.rios101.control_3.app.DetailToMainActivityState;
 import es.ulpgc.caterina.rios101.control_3.app.MainToDetailState;
 
 interface DetailContract {
@@ -24,6 +25,8 @@ interface DetailContract {
     void onCountButtonPressed();
 
     void updateClicks();
+
+    void goToMainScreen();
   }
 
   interface Model {
@@ -46,5 +49,7 @@ interface DetailContract {
     DetailState getDataFromPreviousScreen();
 
     MainToDetailState getDataFromMainScreen();
+
+    void passDataToMainScreen(DetailToMainActivityState state);
   }
 }

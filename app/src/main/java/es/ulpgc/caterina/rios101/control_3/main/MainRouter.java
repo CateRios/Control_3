@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.caterina.rios101.control_3.app.AppMediator;
+import es.ulpgc.caterina.rios101.control_3.app.DetailToMainActivityState;
 import es.ulpgc.caterina.rios101.control_3.app.MainToDetailState;
 import es.ulpgc.caterina.rios101.control_3.detail.DetailActivity;
 
@@ -40,5 +41,12 @@ public class MainRouter implements MainContract.Router {
   @Override
   public void passDataToDetailScreen(MainToDetailState mainToDetailState){
     mediator.setMainToDetailState(mainToDetailState);
+  }
+
+  //Recuperar estado de Detail
+  @Override
+  public DetailToMainActivityState getDataFromDetailScreen(){
+    DetailToMainActivityState state = mediator.getDetailToMainActivityState();
+    return state;
   }
 }
