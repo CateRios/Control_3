@@ -1,6 +1,9 @@
 package es.ulpgc.caterina.rios101.control_3.main;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
+
+import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
 
 interface MainContract {
 
@@ -21,7 +24,7 @@ interface MainContract {
   }
 
   interface Model {
-    String fetchData();
+    List<ContadorItem> fetchData();
   }
 
   interface Router {

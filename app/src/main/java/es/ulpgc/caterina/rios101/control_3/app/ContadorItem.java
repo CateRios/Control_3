@@ -4,11 +4,9 @@ public class ContadorItem {
 
   public final int id;
   public final int contador;
-  public final int contadorDeClicks;
 
-  public ContadorItem(int id, int contador, int contadorDeClicks) {
+  public ContadorItem(int id, int contador) {
     this.id = id;
     this.contador = contador;
-    this.contadorDeClicks = contadorDeClicks;
   }
 }

@@ -1,23 +1,33 @@
 package es.ulpgc.caterina.rios101.control_3.main;
 
-import android.util.Log;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.lang.ref.WeakReference;
-
-import android.support.v7.app.AppCompatActivity;
-import android.support.v4.app.FragmentActivity;
+import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
 
 public class MainModel implements MainContract.Model {
 
   public static String TAG = MainModel.class.getSimpleName();
+
+  private final List<ContadorItem> contadorItemList = new ArrayList<>();
+
 
   public MainModel() {
 
   }
 
   @Override
-  public String fetchData() {
-    // Log.e(TAG, "fetchData()");
-    return "Hello";
+  public List<ContadorItem> fetchData() {
+    return contadorItemList;
+  }
+
+  //Añadir contador
+  private void addContador(ContadorItem contadorItem){
+    contadorItemList.add(contadorItem);
+  }
+
+  //Crear contador
+  private ContadorItem createContador(int position){
+    return new ContadorItem(position, 0);
   }
 }

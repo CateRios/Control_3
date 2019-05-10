@@ -3,6 +3,9 @@ package es.ulpgc.caterina.rios101.control_3.main;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
+
+import es.ulpgc.caterina.rios101.control_3.app.ContadorItem;
 
 public class MainPresenter implements MainContract.Presenter {
 
@@ -39,15 +42,14 @@ public class MainPresenter implements MainContract.Presenter {
     // set passed state
     MainState state = router.getDataFromPreviousScreen();
     if (state != null) {
-      viewModel.data = state.data;
+     //recuperar lista?
     }
 
-    if (viewModel.data == null) {
+    if (viewModel.contadorItemList == null) {
       // call the model
-      String data = model.fetchData();
+      List<ContadorItem> data = model.fetchData();
 
-      // set initial state
-      viewModel.data = data;
+      viewModel.contadorItemList = data;
     }
 
     // update the view
