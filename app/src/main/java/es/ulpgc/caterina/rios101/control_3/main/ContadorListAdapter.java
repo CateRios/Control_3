@@ -1,6 +1,8 @@
 package es.ulpgc.caterina.rios101.control_3.main;
 
 import android.content.Context;
+import android.nfc.Tag;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +54,7 @@ public class ContadorListAdapter extends ArrayAdapter<ContadorItem> {
     itemView.setOnClickListener(clickListener);
 
     final TextView contentView = itemView.findViewById(R.id.contador_item);
-//    contentView.setText(contadorItemList.get(position).contador);
+// contentView.setText(contadorItemList.get(position).contador);
 
     return itemView;
   }

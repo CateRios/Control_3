@@ -60,12 +60,15 @@ public class MainPresenter implements MainContract.Presenter {
   //Aañadir un contador
   @Override
   public void onAddButtonPressed(){
+    //call the model
     model.addContador(new ContadorItem(1, 0));
+    //update the view
     List<ContadorItem> data = model.fetchData();
-
     viewModel.contadorItemList = data;
     view.get().displayData(viewModel);
-  }
+    //update clicks
+    //model.updateClicks();
+    }
 
 
 }
